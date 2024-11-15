@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 body {
     width: 100vw;
     height: 100vh;
     background-color: darkslateblue;
+    overflow: hidden;
 }
 
 #icons {
@@ -46,7 +48,7 @@ body {
     border-color: rgb(208, 59, 48);
 }
 
-#text {
+#textbox {
     position: absolute;
     width: 90vw;
     height: 35vh;
@@ -55,4 +57,10 @@ body {
     border-radius: 10px 10px 0px 0px;
     background-color: hotpink;
     transform: translateX(-50%);
+    padding: 20px;
+}
+
+#textbox p {
+    font-size: 80px;
+    line-height: 50px;
 }
