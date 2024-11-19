@@ -1,3 +1,7 @@
 export const characters = {
-    "1": 1
+    "Clovius": {
+        emotions: {
+            neutral: "./img/Clovius/neutral.png"
+        }
+    }
 }
