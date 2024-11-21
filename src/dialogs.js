@@ -6,6 +6,7 @@ export const dialogs = [
 		pnj_img: "angry",
         player_name: "Clovius",
 		player_img: "neutral",
+		speaking: "player",
 		answered: null,
 		next_card: function () {
 			return 123
@@ -18,6 +19,7 @@ export const dialogs = [
 		pnj_img: "angry",
         player_name: "Clovius",
 		player_img: "neutral",
+		speaking: "pnj",
 		answered: null,
 		next_card: function () {
 			return 2
@@ -30,6 +32,7 @@ export const dialogs = [
 		pnj_img: "happy",
         player_name: "Clovius",
 		player_img: "etonne",
+		speaking: "pnj",
 		answered: null,
 		answers: [
 			{
@@ -68,6 +71,7 @@ export const dialogs = [
 		pnj_img: "sad",
         player_name: "Clovius",
 		player_img: "angry",
+		speaking: "pnj",
 		next_card: function () {
 			return 6
 		},
@@ -79,6 +83,7 @@ export const dialogs = [
 		pnj_img: "surprise",
         player_name: "Clovius",
 		player_img: "surprise",
+		speaking: "pnj",
 		next_card: function () {
 			return 6
 		},
@@ -90,6 +95,7 @@ export const dialogs = [
 		pnj_img: "happy",
         player_name: "Clovius",
 		player_img: "happy",
+		speaking: "pnj",
 		next_card: function () {
 			return 6
 		},

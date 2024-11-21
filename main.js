@@ -73,6 +73,7 @@ function open_dialog(dialog) {
 	TextBox.innerHTML = ""
 
 	// Gestion de l'image du joueur
+    playerDiv.classList.remove("speaking")
 	let player_img = document.createElement("img")
 	if (
 		characters[dialog.player_name] &&
@@ -90,6 +91,31 @@ function open_dialog(dialog) {
 			dialog.player_img
 		)
 	}
+	// Gestion de l'image du pnj
+    pnjDiv.classList.remove("speaking")
+	let pnj_img = document.createElement("img")
+	if (
+		characters[dialog.pnj_id] &&
+		characters[dialog.pnj_id].emotions[dialog.pnj_img]
+	) {
+		pnj_img.setAttribute(
+			"src",
+			characters[dialog.pnj_id].emotions[dialog.pnj_img]
+		)
+		playerDiv.appendChild(pnj_img)
+	} else {
+		console.error(
+			"Image du pnj introuvable:",
+			dialog.pnj_id,
+			dialog.pnj_img
+		)
+	}
+
+    if (dialog.speaking = "player") {
+        playerDiv.classList.add("speaking")
+    } else if (dialog.speaking = "pnj") {
+        pnjDiv.classList.add("speaking")
+    }
 
 	// Gestion du texte/question
 	let text_p = document.createElement("p")

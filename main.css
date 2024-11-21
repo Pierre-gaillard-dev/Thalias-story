@@ -48,6 +48,19 @@ body {
     border-color: rgb(208, 59, 48);
 }
 
+.character.speaking {
+    animation: speaking 2s ease-in-out infinite;
+}
+
+@keyframes speaking {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 #textbox {
     position: absolute;
     width: 90vw;
