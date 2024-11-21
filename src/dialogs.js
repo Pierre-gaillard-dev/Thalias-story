@@ -8,6 +8,18 @@ export const dialogs = [
 		player_img: "neutral",
 		answered: null,
 		next_card: function () {
+			return 123
+		},
+	},
+	{
+		id: 123,
+		question: "Qui s'en fout pas ??",
+		pnj_id: "1",
+		pnj_img: "angry",
+        player_name: "Clovius",
+		player_img: "neutral",
+		answered: null,
+		next_card: function () {
 			return 2
 		},
 	},
@@ -44,6 +56,8 @@ export const dialogs = [
                     return 4
                 case 3:
                     return 5
+				default :
+					return 6
             }
 		},
 	},
