@@ -2,10 +2,10 @@ export const dialogs = [
 	{
 		id: 1,
 		question: "Qui s'en fout !?",
-		pnj_id: "1",
-		pnj_img: "angry",
+		pnj_id: "Aelis",
+		pnj_img: "default",
         player_name: "Clovius",
-		player_img: "neutral",
+		player_img: "default",
 		speaking: "player",
 		answered: null,
 		next_card: function () {
@@ -15,10 +15,10 @@ export const dialogs = [
 	{
 		id: 123,
 		question: "Qui s'en fout pas ??",
-		pnj_id: "1",
-		pnj_img: "angry",
+		pnj_id: "Aelis",
+		pnj_img: "default",
         player_name: "Clovius",
-		player_img: "neutral",
+		player_img: "default",
 		speaking: "pnj",
 		answered: null,
 		next_card: function () {
@@ -31,7 +31,7 @@ export const dialogs = [
         pnj_id: "1",
 		pnj_img: "happy",
         player_name: "Clovius",
-		player_img: "etonne",
+		player_img: "default",
 		speaking: "pnj",
 		answered: null,
 		answers: [
