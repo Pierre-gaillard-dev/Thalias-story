@@ -1,23 +1,19 @@
 import { open_inventory } from "./src/inventory.js"
 
-import { characters } from "./src/characters.js"
-import { dialogs } from "./src/dialogs.js"
+import { characters } from "./src/data/characters.js"
+import { dialogs, get_dialog } from "./src/data/dialogs.js"
 
 const TextBox = document.querySelector("#textbox")
 const playerDiv = document.querySelector("#character_left")
 const pnjDiv = document.querySelector("#character_right")
 
 let current_dialog = get_dialog(1) // Initialisation avec le premier dialogue
-let is_changing_card = false // Pour éviter les appels multiples à get_next_card()
-let previous_dialog
-
-// Fonction pour récupérer un dialogue par ID
-function get_dialog(id) {
-	return dialogs.find((x) => x.id === id) || null // Retourne null si non trouvé
-}
+ // Pour éviter les appels multiples à get_next_card()
+ let is_changing_card = false
+ let previous_dialog
 
 // Fonction pour passer au prochain dialogue
-function get_next_card() {
+export const get_next_card = () => {
 	if (is_changing_card) {
 		console.warn("Transition en cours, ignorer cet appel.")
 		return
@@ -52,6 +48,7 @@ function get_next_card() {
 	// Transition terminée
 	is_changing_card = false
 }
+
 
 // Fonction pour écrire progressivement un texte
 function write_text(text, container) {
