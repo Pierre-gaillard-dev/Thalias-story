@@ -7,6 +7,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "default",
 		speaking: "player",
+		landscape: "foret-caleche",
 		answered: null,
 		next_card: function () {
 			return 123
@@ -20,6 +21,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "default",
 		speaking: "pnj",
+		landscape: "chambre-aelis",
 		answered: null,
 		next_card: function () {
 			return 2
@@ -33,6 +35,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "default",
 		speaking: "pnj",
+		landscape: "foret-caleche",
 		answered: null,
 		answers: [
 			{
@@ -72,6 +75,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "angry",
 		speaking: "pnj",
+		landscape: "foret-caleche",
 		next_card: function () {
 			return 6
 		},
@@ -84,6 +88,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "surprise",
 		speaking: "pnj",
+		landscape: "foret-caleche",
 		next_card: function () {
 			return 6
 		},
@@ -96,6 +101,7 @@ export const dialogs = [
 		player_name: "Clovius",
 		player_img: "happy",
 		speaking: "pnj",
+		landscape: "foret-chemin",
 		next_card: function () {
 			return 6
 		},

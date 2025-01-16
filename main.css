@@ -70,6 +70,16 @@ img {
 	height: 100%;
 }
 
+#landscape {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	filter: blur(1.5px);
+}
+
 .character {
 	height: 60vh;
 	position: absolute;
@@ -186,15 +196,14 @@ img {
 	justify-content: space-between;
 	align-items: center;
 	height: 100%;
-	gap	: 10px;
+	gap: 10px;
 }
 
 #inventory_overlay #inventoryItemList {
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(3,  1fr);
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
-	gap: 7%;
 	padding: 10px 10px;
 }
 
@@ -208,6 +217,7 @@ img {
 	aspect-ratio: 1/1;
 	border-radius: 5px;
 	padding: 5px;
+	margin: 7%;
 
 	background: rgb(171, 88, 28);
 	border: rgb(76, 38, 10) solid 5px;
@@ -240,7 +250,6 @@ img {
 #inventory_overlay #itemDetails .itemdescription {
 	overflow: scroll;
 }
-
 
 #inventory_overlay #itemDetails .itemImg {
 	width: 50%;

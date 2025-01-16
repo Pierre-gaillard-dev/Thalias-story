@@ -2,15 +2,17 @@ import { open_inventory } from "./src/inventory.js"
 
 import { characters } from "./src/data/characters.js"
 import { dialogs, get_dialog } from "./src/data/dialogs.js"
+import { landscapes } from "./src/data/landscapes.js"
 
 const TextBox = document.querySelector("#textbox")
 const playerDiv = document.querySelector("#character_left")
 const pnjDiv = document.querySelector("#character_right")
+const landscapeDiv = document.querySelector("#landscape")
 
 let current_dialog = get_dialog(1) // Initialisation avec le premier dialogue
- // Pour éviter les appels multiples à get_next_card()
- let is_changing_card = false
- let previous_dialog
+// Pour éviter les appels multiples à get_next_card()
+let is_changing_card = false
+let previous_dialog
 
 // Fonction pour passer au prochain dialogue
 export const get_next_card = () => {
@@ -49,7 +51,6 @@ export const get_next_card = () => {
 	is_changing_card = false
 }
 
-
 // Fonction pour écrire progressivement un texte
 function write_text(text, container) {
 	let splitted_text = text.split("")
@@ -69,6 +70,19 @@ function write_text(text, container) {
 // Fonction pour afficher un dialogue
 function open_dialog(dialog) {
 	TextBox.innerHTML = ""
+
+	//gestion de l'arrière-plan
+	if (
+		!previous_dialog ||
+		previous_dialog?.landscape != current_dialog.landscape
+	) {
+		landscapeDiv.src = landscapes[current_dialog.landscape].src
+			? landscapes[current_dialog.landscape].src
+			: landscapes.default.src
+		landscapeDiv.srcset = landscapes[current_dialog.landscape].srcset
+			? landscapes[current_dialog.landscape].srcset
+			: landscapes.default.srcset
+	}
 
 	// Gestion de l'image du joueur
 	playerDiv.classList.remove("speaking")
@@ -124,6 +138,7 @@ function open_dialog(dialog) {
 		}
 	}
 
+	//animation de mouvement du personnage qui parle
 	if (dialog.speaking == "player") {
 		playerDiv.classList.add("speaking")
 	} else if ((dialog.speaking = "pnj")) {
