@@ -2,8 +2,7 @@
 
 
 to add :
-- inventory
-- carte
+- responsive
 - parameters
     - sond
         - music
@@ -23,6 +22,7 @@ to add :
 - landscapes
 
 bonus :
+- carte
 - Konami code
 - voice acting
 - chapter summary OR current context on launching screen
