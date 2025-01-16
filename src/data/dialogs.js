@@ -15,7 +15,7 @@ export const dialogs = [
 	},
 	{
 		id: 123,
-		question: "Qui s'en fout pas ??",
+		question: "Qui s'en fout pas ? &é\"'(-è_çà)=#{|`\\^@]}êëâä!:/;.,?<>~,",
 		pnj_id: "Aelis",
 		pnj_img: "default",
 		player_name: "Clovius",

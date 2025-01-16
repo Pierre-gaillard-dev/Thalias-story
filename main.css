@@ -47,14 +47,15 @@ img {
 
 #icons {
 	position: absolute;
-	height: 13vh;
+	height: 10vh;
 	right: 0;
 	top: 0;
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 5px 5px 15px 20px;
+	gap: 1vh;
+	padding: 1vh 1vh 2vh 3vh;
 
 	background-color: blueviolet;
 	border: 3px rgb(103, 32, 170) solid;
@@ -81,9 +82,9 @@ img {
 }
 
 .character {
-	height: 60vh;
+	height: 70vh;
 	position: absolute;
-	bottom: 20vh;
+	bottom: 10vh;
 	border-radius: 10px 10px 0px 0px;
 }
 
@@ -121,14 +122,30 @@ img {
 	bottom: 0px;
 	left: 50%;
 	border-radius: 10px 10px 0px 0px;
-	background-color: #ff69b4;
+	background: linear-gradient(0deg, #6e7988 0%, #f7f7f7ee 55%, #ffffffaf);
 	transform: translateX(-50%);
 	padding: 20px;
 }
 
+#textbox p > span {
+	margin-right: 10px;
+	font-size: 25px;
+}
+
+#textbox p#speaking_name {
+	font-size: 25px;
+	position: absolute;
+	transform: translateY(-50%);
+	background-color: #fff;
+	padding: 5px;
+	border-radius: 10px;
+	top: 0px;
+	left: 0px;
+}
+
 #textbox p {
 	font-size: 30px;
-	line-height: 50px;
+	line-height: 35px;
 }
 
 #textbox > #answers {

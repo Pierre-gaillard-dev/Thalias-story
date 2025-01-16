@@ -6,6 +6,7 @@ const open_button = document.getElementById("inventory")
 const close_button = document.querySelector("#inventory_overlay .close_button")
 const itemList = document.getElementById("inventoryItemList")
 const arrows = {
+	box: document.querySelector("#inventory_overlay .arrows"),
 	left: document.querySelector("#inventory_overlay .arrows .left"),
 	right: document.querySelector("#inventory_overlay .arrows .right"),
 }
@@ -46,16 +47,25 @@ export const close_inventory = () => {
 
 export const loadItemPage = () => {
 	const objects = get_objects_got(inventory_page)
+	//arrows
+	if (objects.length <= 9) {
+		arrows.box.classList.add("hidden")
+	} else {
+		arrows.box.classList.remove("hidden")
+	}
+
+	// Clear inventory
 	inventory_slots.forEach((slot) => {
 		slot.innerHTML = ""
-        slot.id = ""
+		slot.id = ""
 	})
 
+	// Add items
 	for (let i = 0; i < objects.length; i++) {
 		let object = document.createElement("img")
 		object.setAttribute("src", objects[i].Img)
 		inventory_slots[i].appendChild(object)
-        inventory_slots[i].id = objects[i].id
+		inventory_slots[i].id = objects[i].id
 	}
 }
 

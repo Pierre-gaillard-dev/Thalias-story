@@ -54,14 +54,13 @@ export const get_next_card = () => {
 // Fonction pour écrire progressivement un texte
 function write_text(text, container) {
 	let splitted_text = text.split("")
-	container.innerText = ""
 
 	splitted_text.forEach((char, index) => {
 		setTimeout(() => {
 			if (text[index - 1] == " ") {
-				container.innerText += " " + char
+				container.innerHTML += " " + char
 			} else {
-				container.innerText += char
+				container.innerHTML += char
 			}
 		}, index * 50)
 	})
@@ -143,6 +142,18 @@ function open_dialog(dialog) {
 		playerDiv.classList.add("speaking")
 	} else if ((dialog.speaking = "pnj")) {
 		pnjDiv.classList.add("speaking")
+	}
+
+	//affichage du nom personnage qui parle
+	let speaking_name = document.createElement("p")
+	speaking_name.setAttribute("id", "speaking_name")
+	TextBox.appendChild(speaking_name)
+	if (dialog.speaking == "player") {
+		speaking_name.innerText = `${dialog.player_name}`
+		speaking_name.classList.add("left")
+	} else if (dialog.speaking == "pnj") {
+		speaking_name.innerText = `${dialog.pnj_id}`
+		speaking_name.classList.add("right")
 	}
 
 	// Gestion du texte/question
