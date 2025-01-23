@@ -20,7 +20,6 @@ to add :
 
 -   saves
 -   when text appearing, if clicked again, display full text
--   landscapes
 
 bonus :
 

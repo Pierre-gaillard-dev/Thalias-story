@@ -12,7 +12,7 @@
 body {
 	width: 100vw;
 	height: 100vh;
-	background-color: darkslateblue;
+	background-color: #000;
 	overflow: hidden;
 }
 
@@ -271,4 +271,21 @@ img {
 #inventory_overlay #itemDetails .itemImg {
 	width: 50%;
 	aspect-ratio: 1/1;
+}
+
+#fade {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+	pointer-events: none;
+}
+
+#fade.active {
+	opacity: 1;
+	pointer-events: all;
 }

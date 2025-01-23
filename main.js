@@ -2,12 +2,13 @@ import { open_inventory } from "./src/inventory.js"
 
 import { characters } from "./src/data/characters.js"
 import { dialogs, get_dialog } from "./src/data/dialogs.js"
-import { landscapes } from "./src/data/landscapes.js"
+import { loadLandscapes } from "./src/data/landscapes.js"
 
 const TextBox = document.querySelector("#textbox")
 const playerDiv = document.querySelector("#character_left")
 const pnjDiv = document.querySelector("#character_right")
 const landscapeDiv = document.querySelector("#landscape")
+const fadeDiv = document.querySelector("#fade")
 
 let current_dialog = get_dialog(1) // Initialisation avec le premier dialogue
 // Pour éviter les appels multiples à get_next_card()
@@ -51,6 +52,20 @@ export const get_next_card = () => {
 	is_changing_card = false
 }
 
+// Fonction pour afficher le nom du personnage qui perle
+function display_name(dialog) {
+	let speaking_name = document.createElement("p")
+	speaking_name.setAttribute("id", "speaking_name")
+	TextBox.appendChild(speaking_name)
+	if (dialog.speaking == "player") {
+		speaking_name.innerText = `${dialog.player_name}`
+		speaking_name.classList.add("left")
+	} else if (dialog.speaking == "pnj") {
+		speaking_name.innerText = `${dialog.pnj_id}`
+		speaking_name.classList.add("right")
+	}
+}
+
 // Fonction pour écrire progressivement un texte
 function write_text(text, container) {
 	let splitted_text = text.split("")
@@ -66,25 +81,37 @@ function write_text(text, container) {
 	})
 }
 
+function reset_dialog() {
+	TextBox.innerHTML = ""
+	playerDiv.classList.remove("speaking")
+	pnjDiv.classList.remove("speaking")
+}
+
 // Fonction pour afficher un dialogue
 function open_dialog(dialog) {
-	TextBox.innerHTML = ""
-
 	//gestion de l'arrière-plan
-	if (
-		!previous_dialog ||
-		previous_dialog?.landscape != current_dialog.landscape
-	) {
-		landscapeDiv.src = landscapes[current_dialog.landscape].src
-			? landscapes[current_dialog.landscape].src
-			: landscapes.default.src
-		landscapeDiv.srcset = landscapes[current_dialog.landscape].srcset
-			? landscapes[current_dialog.landscape].srcset
-			: landscapes.default.srcset
+	if (!previous_dialog) {
+		loadLandscapes(landscapeDiv, current_dialog.landscape, () => {
+			fadeDiv.classList.remove("active")
+		})
+	} else if (previous_dialog?.landscape != current_dialog.landscape) {
+		fadeDiv.classList.add("active")
+		previous_dialog = current_dialog
+		setTimeout(() => {
+			loadLandscapes(landscapeDiv, current_dialog.landscape, () => {
+				reset_dialog()
+				display_name(dialog)
+				fadeDiv.classList.remove("active")
+				setTimeout(() => {
+					open_dialog(current_dialog)
+				}, 1000)
+			})
+		}, 1000)
+		return
 	}
+	reset_dialog()
 
 	// Gestion de l'image du joueur
-	playerDiv.classList.remove("speaking")
 	if (
 		!previous_dialog ||
 		previous_dialog?.player_name != current_dialog.player_name ||
@@ -111,7 +138,6 @@ function open_dialog(dialog) {
 	}
 
 	// Gestion de l'image du pnj
-	pnjDiv.classList.remove("speaking")
 	if (
 		!previous_dialog ||
 		previous_dialog?.pnj_id != current_dialog.pnj_id ||
@@ -146,15 +172,7 @@ function open_dialog(dialog) {
 
 	//affichage du nom personnage qui parle
 	let speaking_name = document.createElement("p")
-	speaking_name.setAttribute("id", "speaking_name")
-	TextBox.appendChild(speaking_name)
-	if (dialog.speaking == "player") {
-		speaking_name.innerText = `${dialog.player_name}`
-		speaking_name.classList.add("left")
-	} else if (dialog.speaking == "pnj") {
-		speaking_name.innerText = `${dialog.pnj_id}`
-		speaking_name.classList.add("right")
-	}
+	display_name(dialog)
 
 	// Gestion du texte/question
 	let text_p = document.createElement("p")

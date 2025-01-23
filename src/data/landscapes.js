@@ -1,3 +1,11 @@
+export const loadLandscapes = (landscapeDiv, imageId, callback) => {
+	landscapeDiv.src = landscapes[imageId].src
+	landscapeDiv.srcset = landscapes[imageId].srcset
+	landscapeDiv.onload = () => {
+		callback()
+	}
+}
+
 export const landscapes = {
 	default: { src: "./img/landscapes/thron-elf.webp", srcset: "" },
 	"chambre-aelis": {
