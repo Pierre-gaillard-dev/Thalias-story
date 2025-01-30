@@ -10,10 +10,21 @@ const pnjDiv = document.querySelector("#character_right")
 const landscapeDiv = document.querySelector("#landscape")
 const fadeDiv = document.querySelector("#fade")
 
-let current_dialog = get_dialog(1) // Initialisation avec le premier dialogue
+let current_dialog = get_dialog("R1A1S1T1")
 // Pour éviter les appels multiples à get_next_card()
 let is_changing_card = false
 let previous_dialog
+
+const img_exists = (img) => {
+	var imgdiv = new Image()
+	imgdiv.src = img
+	imgdiv.onload = () => {
+		return true
+	}
+	imgdiv.onerror = () => {
+		return false
+	}
+}
 
 // Fonction pour passer au prochain dialogue
 export const get_next_card = () => {
@@ -121,7 +132,10 @@ function open_dialog(dialog) {
 		let player_img = document.createElement("img")
 		if (
 			characters[dialog.player_name] &&
-			characters[dialog.player_name].emotions[dialog.player_img]
+			characters[dialog.player_name].emotions[dialog.player_img] &&
+			img_exists(
+				characters[dialog.player_name].emotions[dialog.player_img]
+			)
 		) {
 			player_img.setAttribute(
 				"src",
@@ -134,6 +148,21 @@ function open_dialog(dialog) {
 				dialog.player_name,
 				dialog.player_img
 			)
+			if (
+				characters[dialog.player_name] &&
+				characters[dialog.player_name].genre
+			) {
+				if (characters[dialog.player_name].genre == "female") {
+					player_img.setAttribute("src", "images/silhouette-fem.webp")
+				} else {
+					player_img.setAttribute(
+						"src",
+						"images/silhouette-homme.webp"
+					)
+				}
+			} else {
+				player_img.setAttribute("src", "images/silhouette-homme.webp")
+			}
 		}
 	}
 

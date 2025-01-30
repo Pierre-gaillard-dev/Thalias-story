@@ -1,28 +1,56 @@
 export const loadLandscapes = (landscapeDiv, imageId, callback) => {
-	landscapeDiv.src = landscapes[imageId].src
-	landscapeDiv.srcset = landscapes[imageId].srcset
-	landscapeDiv.onload = () => {
+	if (landscapes[imageId]) {
+		landscapeDiv.src = landscapes[imageId].src
+		landscapeDiv.srcset = landscapes[imageId].srcset
+		landscapeDiv.onload = () => {
+			callback()
+		}
+	} else {
+		console.error("Image de paysage introuvable:", imageId)
 		callback()
 	}
 }
 
 export const landscapes = {
 	default: { src: "./img/landscapes/thron-elf.webp", srcset: "" },
-	"chambre-aelis": {
-		src: "./img/landscapes/1440p/chambre-aelis.webp",
-		srcset: "./img/landscapes/fullHD/chambre-aelis.webp 1920w",
+	"elfique-caleche": {
+		src: "./img/landscapes/1440p/elfique/caleche.webp",
+		srcset: "",
 	},
-	"couloir-elfique": {
-		src: "./img/landscapes/1440p/couloir-elfique.webp",
-		srcset: "./img/landscapes/fullHD/couloir-elfique.webp 1920w",
+	"elfique-cite": {
+		src: "./img/landscapes/1440p/elfique/cite-elfique.webp",
+		srcset: "",
 	},
-	"foret-caleche": {
-		src: "./img/landscapes/1440p/foret-caleche.webp",
-		srcset: "./img/landscapes/fullHD/foret-caleche.webp 1920w",
+	"elfique-couloir": {
+		src: "./img/landscapes/fullHD/elfique/couloir-elfique.webp",
+		srcset: "",
+	},
+	"elfique-throne": {
+		src: "./img/landscapes/1440p/elfique/thron-elf.webp",
+		srcset: "./img/landscapes/fullHD/elfique/thron-elf.webp",
+	},
+	"elfique-chambre-aelis": {
+		src: "./img/landscapes/fullHD/elfique/chambre-aelis.webp",
+		srcset: "",
+	},
+	"elfique-chambre-thalia": {
+		src: "./img/landscapes/1440p/elfique/chambre-thalia.webp",
+		srcset: "",
+	},
+	"barbare-cite": {
+		src: "./img/landscapes/1440p/barbare/cite-barbare.webp",
+		srcset: "",
+	},
+	"barbare-cite-2": {
+		src: "./img/landscapes/1440p/barbare/cite-barbare.webp",
+		srcset: "",
 	},
 	"foret-chemin": {
-		src: "./img/landscapes/1440p/foret-chemin.webp",
-		srcset: "./img/landscapes/fullHD/foret-chemin.webp 1920w",
+		src: "./img/landscapes/1440p/barbare/foret-chemin.webp",
+		srcset: "",
 	},
-	troneElf: { src: "./img/landscapes/thron-elf.webp", srcset: "" },
+	"foret-caleche": {
+		src: "./img/landscapes/1440p/barbare/foret-caleche.webp",
+		srcset: "",
+	},
 }

@@ -94,11 +94,11 @@ img {
 }
 
 #character_left {
-	left: 3vw;
+	left: 6vw;
 }
 
 #character_right {
-	right: 3vw;
+	right: 6vw;
 }
 
 .character.speaking {
@@ -117,14 +117,14 @@ img {
 
 #textbox {
 	position: absolute;
-	width: 90vw;
+	width: 85vw;
 	height: 35vh;
 	bottom: 0px;
 	left: 50%;
 	border-radius: 10px 10px 0px 0px;
 	background: linear-gradient(0deg, #6e7988 0%, #f7f7f7ee 55%, #ffffffaf);
 	transform: translateX(-50%);
-	padding: 20px;
+	padding: 3vw;
 }
 
 #textbox p > span {
