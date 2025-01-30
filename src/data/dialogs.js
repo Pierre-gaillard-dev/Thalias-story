@@ -3,8 +3,8 @@
  *R1 = Route 1
  *A1 = Acte 1
  *SA = Scène 1
+ *O1 = Option 1 (choix)
  *T1 = Texte 1
- *O1 = Option 1
  */
 
 export const dialogs = [
@@ -937,6 +937,507 @@ export const dialogs = [
 			return "R1A1S4T1"
 		},
 	},
+	{
+		id: "R1A1S4T1",
+		question: "Tout va bien Votre Altesse ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "pnj",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T2"
+		},
+	},
+	{
+		id: "R1A1S4T2",
+		question: "Oui Gunthral, à la perfection.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T3"
+		},
+	},
+	{
+		id: "R1A1S4T3",
+		question:
+			"Ma sœur est morte depuis 3 ans mais je vais à la perfection.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T4"
+		},
+	},
+	{
+		id: "R1A1S4T4",
+		question: "Je suis désolé Votre Altesse, toutes mes condoléances...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "pnj",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T5"
+		},
+	},
+	{
+		id: "R1A1S4T5",
+		question: "Tu ne savais pas, je ne t’en veux pas.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T6"
+		},
+	},
+	{
+		id: "R1A1S4T6",
+		question: "Nous avons été coupés d’Auralys pendant ces 4 ans.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T7"
+		},
+	},
+	{
+		id: "R1A1S4T7",
+		question:
+			"Est-ce bien vous qui allez reprendre le flambeau de votre sœur ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "pnj",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T8"
+		},
+	},
+	{
+		id: "R1A1S4T8",
+		question: "Mais qu’est-ce que vous avez tous avec ça à la fin ?!",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "Guarde_elfique",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T9"
+		},
+	},
+	{
+		id: "R1A1S4T9",
+		question: "[GardePerso enlevé]",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "",
+		pnj_img: "",
+		speaking: "narrator",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S4T10"
+		},
+	},
+	{
+		id: "R1A1S4T10",
+		question: "Est-ce que je vais vraiment dans ma chambre ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "",
+		pnj_img: "",
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		answers: [
+			{
+				id: "1",
+				text: "Oui",
+			},
+			{
+				id: "2",
+				text: "Non, je vais dans celle de Thalia.",
+			},
+		],
+		next_card: function () {
+			if (this.answered === "1") {
+				return "R1A1S5O1T1"
+			} else if (this.answered === "2") {
+				return "R1A1S5O2T1"
+			} else {
+				console.error("Aucune option choisie.")
+			}
+		},
+	},
+	{
+		id: "R1A1S5O1T1",
+		question: "Comment est-ce qu’ils peuvent être comme ça ?!",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T2"
+		},
+	},
+	{
+		id: "R1A1S5O1T2",
+		question: "Je ne vais pas remplacer Thalia !",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T3"
+		},
+	},
+	{
+		id: "R1A1S5O1T3",
+		question: "Comment je pourrais prendre la place de ma sœur ?!",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T4"
+		},
+	},
+	{
+		id: "R1A1S5O1T4",
+		question:
+			"Et ils n’ont même pas pris la peine d’envoyer un courrier pour me prévenir !",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T5"
+		},
+	},
+	{
+		id: "R1A1S5O1T5",
+		question:
+			"Et ce n’est pas comme s’ils me disaient tout non plus, c’est sûr !",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T6"
+		},
+	},
+	{
+		id: "R1A1S5O1T6",
+		question:
+			"Ce n’est pas comme s’ils allaient tout me dire, il ne faudrait pas que j’en sache trop.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T7"
+		},
+	},
+	{
+		id: "R1A1S5O1T7",
+		question: "Et je n’ai pas mon mot à dire là-dedans bien sûr.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T8"
+		},
+	},
+	{
+		id: "R1A1S5O1T8",
+		question: "Tu serais tout aussi en colère que moi hein Thalia ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T9"
+		},
+	},
+	{
+		id: "R1A1S5O1T9",
+		question: "...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T10"
+		},
+	},
+	{
+		id: "R1A1S5O1T10",
+		question: "C’est tellement vide...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T11"
+		},
+	},
+	{
+		id: "R1A1S5O1T11",
+		question: "Et silencieux...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O1T12"
+		},
+	},
+	{
+		id: "R1A1S5O1T12",
+		question: "Pourquoi est-ce que tu as dû nous quitter ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T1"
+		},
+	},
+	// choix 2
+	{
+		id: "R1A1S5O2T1",
+		question: "Je vais plutôt aller dans la chambre de Thalia d’abord.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-couloir",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T2"
+		},
+	},
+	{
+		id: "R1A1S5O2T2",
+		question: "Thalia ? Es-tu là ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T3"
+		},
+	},
+	{
+		id: "R1A1S5O2T3",
+		question: "Thalia...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T4"
+		},
+	},
+	{
+		id: "R1A1S5O2T4",
+		question: "Tu n’es vraiment plus là...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T5"
+		},
+	},
+	{
+		id: "R1A1S5O2T5",
+		question: "Comment est-ce que tu as pu mourir... ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T6"
+		},
+	},
+	{
+		id: "R1A1S5O2T6",
+		question: "Ils me cachent des choses, n’est-ce pas Grande Sœur ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T7"
+		},
+	},
+	{
+		id: "R1A1S5O2T7",
+		question: "On ne se verra donc plus jamais...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T8"
+		},
+	},
+	{
+		id: "R1A1S5O2T8",
+		question: "Hmm ? C’est quoi ça ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T9"
+		},
+	},
+	{
+		id: "R1A1S5O2T9",
+		question: "C’est pour moi ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		answers: [
+			{
+				id: "1",
+				text: "Ouvrir la lettre",
+			},
+		],
+		next_card: function () {
+			return "R1A1S5O2T10"
+		},
+	},
+	{
+		id: "R1A1S5O2T10",
+		question: "Ceci est une lettre de Thalia",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T11"
+		},
+	},
+	{
+		id: "R1A1S5O2T11",
+		question: "Tu me manques tellement aussi grande sœur...",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		answers: [
+			{
+				id: "1",
+				text: "Je devrais garder ça et la mettre dans ma chambre.",
+			},
+			{
+				id: "2",
+				text: "Il vaudrait mieux laisser la lettre ici.",
+			},
+		],
+		next_card: function () {
+			return "R1A1S5O2T12"
+		},
+	},
+	{},
 ]
 
 // Fonction pour obtenir un dialogue par son ID

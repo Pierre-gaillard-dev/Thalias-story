@@ -1,7 +1,7 @@
 export const objects = [
 	{
-		id: "obj_1",
-		name: "médaillon d'Evander",
+		id: "lettre",
+		name: "Lettre d'aelis",
 		description:
 			"Trouvé au niveau du char en ruine.\nIl appartenait à Evander.",
 		Img: "./img/objects/medaillon.png",
