@@ -16,12 +16,13 @@ let is_changing_card = false
 let previous_dialog
 
 const img_exists = (img) => {
-	var imgdiv = new Image()
-	imgdiv.src = img
-	imgdiv.onload = () => {
-		return true
-	}
-	imgdiv.onerror = () => {
+	console.log(img)
+	try {
+		const xhr = new XMLHttpRequest()
+		xhr.open("HEAD", img, false) // false = mode synchrone
+		xhr.send()
+		return xhr.status >= 200 && xhr.status < 400
+	} catch (e) {
 		return false
 	}
 }
@@ -141,29 +142,35 @@ function open_dialog(dialog) {
 				"src",
 				characters[dialog.player_name].emotions[dialog.player_img]
 			)
-			playerDiv.appendChild(player_img)
 		} else {
 			console.error(
 				"Image du joueur introuvable:",
 				dialog.player_name,
-				dialog.player_img
+				dialog.player_img,
+				characters[dialog.player_name].emotions[dialog.player_img]
 			)
 			if (
+				characters[dialog.player_name] &&
+				img_exists(characters[dialog.player_name].emotions["default"])
+			) {
+				player_img.setAttribute(
+					"src",
+					characters[dialog.player_name].emotions["default"]
+				)
+			} else if (
 				characters[dialog.player_name] &&
 				characters[dialog.player_name].genre
 			) {
 				if (characters[dialog.player_name].genre == "female") {
-					player_img.setAttribute("src", "images/silhouette-fem.webp")
+					player_img.setAttribute("src", "img/silhouette-fem.webp")
 				} else {
-					player_img.setAttribute(
-						"src",
-						"images/silhouette-homme.webp"
-					)
+					player_img.setAttribute("src", "img/silhouette-homme.webp")
 				}
 			} else {
-				player_img.setAttribute("src", "images/silhouette-homme.webp")
+				player_img.setAttribute("src", "img/silhouette-homme.webp")
 			}
 		}
+		playerDiv.appendChild(player_img)
 	}
 
 	// Gestion de l'image du pnj
@@ -176,20 +183,47 @@ function open_dialog(dialog) {
 		let pnj_img = document.createElement("img")
 		if (
 			characters[dialog.pnj_id] &&
-			characters[dialog.pnj_id].emotions[dialog.pnj_img]
+			characters[dialog.pnj_id].emotions[dialog.pnj_img] &&
+			img_exists(characters[dialog.pnj_id].emotions[dialog.pnj_img])
 		) {
+			console.log(
+				dialog.pnj_id,
+				dialog.pnj_img,
+				characters[dialog.pnj_id].emotions[dialog.pnj_img],
+				img_exists(characters[dialog.pnj_id].emotions[dialog.pnj_img])
+			)
 			pnj_img.setAttribute(
 				"src",
 				characters[dialog.pnj_id].emotions[dialog.pnj_img]
 			)
-			pnjDiv.appendChild(pnj_img)
 		} else {
 			console.error(
 				"Image du pnj introuvable:",
 				dialog.pnj_id,
 				dialog.pnj_img
 			)
+			if (
+				characters[dialog.pnj_id] &&
+				img_exists(characters[dialog.pnj_id].emotions["default"])
+			) {
+				pnj_img.setAttribute(
+					"src",
+					characters[dialog.pnj_id].emotions["default"]
+				)
+			} else if (
+				characters[dialog.pnj_id] &&
+				characters[dialog.pnj_id].genre
+			) {
+				if (characters[dialog.pnj_id].genre == "female") {
+					pnj_img.setAttribute("src", "img/silhouette-fem.webp")
+				} else {
+					pnj_img.setAttribute("src", "img/silhouette-homme.webp")
+				}
+			} else {
+				pnj_img.setAttribute("src", "img/silhouette-homme.webp")
+			}
 		}
+		pnjDiv.appendChild(pnj_img)
 	}
 
 	//animation de mouvement du personnage qui parle
