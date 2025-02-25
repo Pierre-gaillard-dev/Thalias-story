@@ -1437,7 +1437,195 @@ export const dialogs = [
 			return "R1A1S5O2T12"
 		},
 	},
-	{},
+	{
+		id: "R1A1S5O2T12",
+		question: "Je pense en avoir fini ici.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S5O2T13"
+		},
+	},
+	{
+		id: "R1A1S5O2T13",
+		question:
+			"Je devrais aller dans ma chambre avant qu’ils ne se rendent compte que je n’y étais pas.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-thalia",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T1"
+		},
+	},
+	{
+		id: "R1A1S6T1",
+		question:
+			"Je dois bien avoir le temps de me laver avant que ce soit l’heure de manger",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T2"
+		},
+	},
+	{
+		id: "R1A1S6T2",
+		question: "Voilà, c’est déjà mieux comme ça.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: null,
+		pnj_img: null,
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T3"
+		},
+	},
+	{
+		id: "R1A1S6T3",
+		question: "Votre Altesse ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T4"
+		},
+	},
+	{
+		id: "R1A1S6T4",
+		question: "Oui ? Qu’y a-t-il Gunthral ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T5"
+		},
+	},
+	{
+		id: "R1A1S6T5",
+		question:
+			"Je tenais à m’excuser pour mon indélicatesse de tout à l’heure.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T6"
+		},
+	},
+	{
+		id: "R1A1S6T6",
+		question:
+			"J’aurais dû prendre en compte votre proximité avant de dire une telle chose.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T7"
+		},
+	},
+	{
+		id: "R1A1S6T7",
+		question:
+			"Ce n’est pas grave, fait juste attention les prochaines fois.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T8"
+		},
+	},
+	{
+		id: "R1A1S6T8",
+		question: "C’est tout ce que tu avais à me dire ?",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T9"
+		},
+	},
+	{
+		id: "R1A1S6T9",
+		question:
+			"Non, sa Majesté votre Père souhaite que vous vous joigniez à lui et votre mère pour le diner.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T10"
+		},
+	},
+	{
+		id: "R1A1S6T10",
+		question:
+			"Très bien, je ne devrais pas tarder à le rejoindre, tu peux y aller.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "player",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S6T11"
+		},
+	},
+	{
+		id: "R1A1S6T11",
+		question: "A vos ordres, à bientôt votre Altesse.",
+		player_name: "Aelis",
+		player_img: "default",
+		pnj_id: "GardePerso",
+		pnj_img: "default",
+		speaking: "pnj",
+		landscape: "elfique-chambre-aelis",
+		answered: null,
+		next_card: function () {
+			return "R1A1S7T1"
+		},
+	},
 ]
 
 // Fonction pour obtenir un dialogue par son ID
