@@ -30,6 +30,12 @@ export const characters = {
 		},
 		genre: "male",
 	},
+	Roi: {
+		emotions: {
+			default: "./img/Roi/default.webp",
+		},
+		genre: "male",
+	},
 	GardePerso: {
 		emotions: {
 			default: "./img/GardePerso/default.webp",

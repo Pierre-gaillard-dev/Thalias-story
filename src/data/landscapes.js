@@ -34,7 +34,7 @@ export const landscapes = {
 		srcset: "",
 	},
 	"elfique-chambre-thalia": {
-		src: "./img/landscapes/1440p/elfique/chambre-thalia.webp",
+		src: "./img/landscapes/fullHD/elfique/chambre-thalia.webp",
 		srcset: "",
 	},
 	"barbare-cite": {
