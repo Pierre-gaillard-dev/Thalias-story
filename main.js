@@ -196,7 +196,7 @@ function open_dialog(dialog) {
 				"src",
 				characters[dialog.pnj_id].emotions[dialog.pnj_img]
 			)
-		} else {
+		} else if (dialog.pnj_id) {
 			console.error(
 				"Image du pnj introuvable:",
 				dialog.pnj_id,

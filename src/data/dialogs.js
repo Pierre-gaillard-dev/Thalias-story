@@ -249,7 +249,7 @@ export const dialogs = [
 		player_img: "default",
 		pnj_id: "GardePerso",
 		pnj_img: "default",
-		speaking: "player",
+		speaking: "pnj",
 		landscape: "elfique-caleche",
 		answered: null,
 		next_card: function () {
