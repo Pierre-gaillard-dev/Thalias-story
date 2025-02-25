@@ -1053,20 +1053,6 @@ export const dialogs = [
 	},
 	{
 		id: "R1A1S4T9",
-		question: "[GardePerso enlevé]",
-		player_name: "Aelis",
-		player_img: "default",
-		pnj_id: "",
-		pnj_img: "",
-		speaking: "narrator",
-		landscape: "elfique-couloir",
-		answered: null,
-		next_card: function () {
-			return "R1A1S4T10"
-		},
-	},
-	{
-		id: "R1A1S4T10",
 		question: "Est-ce que je vais vraiment dans ma chambre ?",
 		player_name: "Aelis",
 		player_img: "default",
@@ -1145,7 +1131,7 @@ export const dialogs = [
 		player_img: "default",
 		pnj_id: null,
 		pnj_img: null,
-		speaking: "pnj",
+		speaking: "player",
 		landscape: "elfique-chambre-aelis",
 		answered: null,
 		next_card: function () {
