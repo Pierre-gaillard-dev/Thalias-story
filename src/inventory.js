@@ -20,6 +20,7 @@ const itemDetail = {
 const inventory_slots = []
 let inventory_page = 0
 
+/** Updates the arrows for inventory pages of the inventory */
 const updateArrows = () => {
 	if (inventory_page === 0) {
 		arrows.left.classList.add("disabled")
@@ -34,6 +35,7 @@ const updateArrows = () => {
 	}
 }
 
+/** opens the inventory overlay */
 export const open_inventory = () => {
 	inventory_overlay.classList.remove("hidden")
 	inventory_page = 0
@@ -41,10 +43,12 @@ export const open_inventory = () => {
 	updateArrows()
 }
 
+/** Closes the inventory overlay */
 export const close_inventory = () => {
 	inventory_overlay.classList.add("hidden")
 }
 
+/** Loads the current item page */
 export const loadItemPage = () => {
 	const objects = get_objects_got(inventory_page)
 	//arrows
@@ -69,6 +73,7 @@ export const loadItemPage = () => {
 	}
 }
 
+/** updates the detail page */
 const showItemDetails = (id) => {
 	let object = get_object(id)
 	itemDetail.Img.innerHTML = ""

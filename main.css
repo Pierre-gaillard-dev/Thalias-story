@@ -82,9 +82,9 @@ img {
 }
 
 .character {
-	height: 70vh;
+	height: 80vh;
 	position: absolute;
-	bottom: 10vh;
+	bottom: 15vh;
 	border-radius: 10px 10px 0px 0px;
 }
 

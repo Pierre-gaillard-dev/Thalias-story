@@ -1,7 +1,8 @@
+// data
 import { characters } from "./src/data/characters.js"
 import { get_dialog } from "./src/data/dialogs.js"
 import { loadLandscapes } from "./src/data/landscapes.js"
-
+// HTMLElements
 const TextBox = document.querySelector("#textbox")
 const playerDiv = document.querySelector("#character_left")
 const pnjDiv = document.querySelector("#character_right")
@@ -9,12 +10,11 @@ const landscapeDiv = document.querySelector("#landscape")
 const fadeDiv = document.querySelector("#fade")
 
 let current_dialog = get_dialog("R1A1S1T1")
-// Pour éviter les appels multiples à get_next_card()
 let is_changing_card = false
 let previous_dialog
 
+/** Verifies if an image's url exists */
 const img_exists = (img) => {
-	console.log(img)
 	try {
 		const xhr = new XMLHttpRequest()
 		xhr.open("HEAD", img, false) // false = mode synchrone
@@ -25,7 +25,7 @@ const img_exists = (img) => {
 	}
 }
 
-// Fonction pour passer au prochain dialogue
+/** Switchs to the next dialog */
 export const get_next_card = () => {
 	if (is_changing_card) {
 		console.warn("Transition en cours, ignorer cet appel.")
@@ -62,7 +62,7 @@ export const get_next_card = () => {
 	is_changing_card = false
 }
 
-// Fonction pour afficher le nom du personnage qui perle
+/** Displays the speaking character's name */
 function display_name(dialog) {
 	let speaking_name = document.createElement("p")
 	speaking_name.setAttribute("id", "speaking_name")
@@ -76,7 +76,7 @@ function display_name(dialog) {
 	}
 }
 
-// Fonction pour écrire progressivement un texte
+/** Writes the text in the dialog (letter by letter) */
 function write_text(text, container) {
 	let splitted_text = text.split("")
 
@@ -91,13 +91,14 @@ function write_text(text, container) {
 	})
 }
 
+/** resets the dialog */
 function reset_dialog() {
 	TextBox.innerHTML = ""
 	playerDiv.classList.remove("speaking")
 	pnjDiv.classList.remove("speaking")
 }
 
-// Fonction pour afficher un dialogue
+/** displays the dialog */
 function open_dialog(dialog) {
 	//gestion de l'arrière-plan
 	if (!previous_dialog) {
@@ -268,8 +269,6 @@ function open_dialog(dialog) {
 		TextBox.appendChild(arrow_next)
 	}
 }
-
-//function open
 
 // Initialisation du premier dialogue
 open_dialog(current_dialog)

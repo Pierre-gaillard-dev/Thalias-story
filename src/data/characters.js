@@ -1,3 +1,10 @@
+/**
+ * @typedef {object} Character
+ * @property {object<string, string>} emotions
+ * @property {"male" | "female"} genre
+ */
+
+/** @type {object<string, Character>} */
 export const characters = {
 	Aelis: {
 		emotions: {

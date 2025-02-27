@@ -1,3 +1,15 @@
+/**
+ * @typedef {object} Landscape
+ * @property {string} src - link of the image
+ * @property {string} srcset - other links for smaller version of the image
+ */
+
+/**
+ * Loads the image in the div
+ * @param {HTMLDivElement} landscapeDiv
+ * @param {string} imageId
+ * @param {function(): any} callback - function called at th end of the load
+ */
 export const loadLandscapes = (landscapeDiv, imageId, callback) => {
 	if (landscapes[imageId]) {
 		landscapeDiv.src = landscapes[imageId].src
@@ -11,6 +23,7 @@ export const loadLandscapes = (landscapeDiv, imageId, callback) => {
 	}
 }
 
+/** @type {Landscape} */
 export const landscapes = {
 	default: { src: "./img/landscapes/thron-elf.webp", srcset: "" },
 	"elfique-caleche": {

@@ -1,4 +1,4 @@
-/*
+/**
  *L'id du dialogue est compose de 3 parties :
  *R1 = Route 1
  *A1 = Acte 1
@@ -7,6 +7,37 @@
  *T1 = Texte 1
  */
 
+/**
+ * @typedef {object} Answer
+ * @property {string} id
+ * @property {string} text
+ */
+
+/**
+ * @typedef {object} Dialog
+ * @property {string} id - id of th dialog (see structure above)
+ * @property {string} question - text or question displayed
+ * @property {string} player_name - name of the player (must be in characters list)
+ * @property {string} player_img - image of the player used (must be in emotions of the character)
+ * @property {string} pnj_id - name of the pnj (must be in characters list)
+ * @property {string} pnj_img - image of the pnj used (must be in emotions of the character)
+ * @property {"player" | "pnj" | "narrator"} speaking
+ * @property {string} landscape - landscape shown (must be in landscapes)
+ * @property {null | string} answered - answer of the player (if question)
+ * @property {Answer[]} answers - available answers (if question)
+ * @property {function(): string} - returns the next dialog's id (can change depanding on the answer or other dialog's answer)
+ */
+
+/**
+ * returns a dialog based on its id
+ * @param {string} id
+ * @returns {Dialog | null}
+ */
+export const get_dialog = (id) => {
+	return dialogs.find((x) => x.id === id) || null // Retourne null si non trouvé
+}
+
+/** @type {Dialog[]} */
 export const dialogs = [
 	{
 		id: "R1A1S1T1",
@@ -1613,8 +1644,3 @@ export const dialogs = [
 		},
 	},
 ]
-
-// Fonction pour obtenir un dialogue par son ID
-export const get_dialog = (id) => {
-	return dialogs.find((x) => x.id === id) || null // Retourne null si non trouvé
-}
