@@ -115,7 +115,7 @@ export const dialogs = [
 	{
 		id: "R1A1S1T8",
 		question:
-			"Je me dois d’avoir des compétences plus développées que la moyenne au vu mon statut, c’est indéniable.",
+			"Je me dois d’avoir des compétences plus développées que la moyenne au vu de mon statut, c’est indéniable.",
 		player_name: "Aelis",
 		player_img: "default",
 		pnj_id: "GardePerso",

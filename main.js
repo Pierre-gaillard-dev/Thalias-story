@@ -1,7 +1,5 @@
-import { open_inventory } from "./src/inventory.js"
-
 import { characters } from "./src/data/characters.js"
-import { dialogs, get_dialog } from "./src/data/dialogs.js"
+import { get_dialog } from "./src/data/dialogs.js"
 import { loadLandscapes } from "./src/data/landscapes.js"
 
 const TextBox = document.querySelector("#textbox")
